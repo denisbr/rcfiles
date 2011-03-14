@@ -51,18 +51,6 @@ endfunction
 inoremap <silent> <TAB> <c-r>=WordTabAsCompletion("forward")<CR>
 inoremap <silent> <S-TAB> <c-r>=WordTabAsCompletion("backward")<CR>
 
-"=====[ Below is Damian Conways vimrc for reference ]=========
-
-"=====[ Make comments format as *I* prefer ]==================
-"
-"set comments-=s1:/*,mb:*,ex:*/ "Don't recognize C comments
-"set comments-=:XCOMM "Don't recognize lmake comments
-"set comments-=:% "Don't recognize PostScript comments
-"set comments+=fb:* "Star-space is a bullet
-"set comments+=fb:- "Dash-space is a bullet
-"set formatoptions+=ac
-"
-"
 ""=====[ Indenting support ]==================
 
 "set wrapmargin=78
@@ -76,19 +64,9 @@ inoremap <silent> <S-TAB> <c-r>=WordTabAsCompletion("backward")<CR>
 "map $$ $<i}``
 
 
-"=====[ Make Visual modes work better ]==================
-"
-"" Visual Block mode is far more common that Visual mode...
-"nnoremap v <C-V>
-"nnoremap <C-V> v
-
-" Make BS/DEL work as expected
-" vmap <BS> x
-"
 " "Square up visual selections
-" set virtualedit=block
-"
-"
+set virtualedit=block
+
 " "=====[ Toggle syntax highlighting ]==============================
 "
 " nmap <silent> ;y : if exists("syntax_on") <BAR>
@@ -96,50 +74,6 @@ inoremap <silent> <S-TAB> <c-r>=WordTabAsCompletion("backward")<CR>
 " \ else <BAR>
 " \ syntax enable <BAR>
 " \ endif<CR>
-"
-"
-" "=====[ Insert POD markup and continue ]==============================
-"
-" " CTRL-C in insert mode inserts C<> and repositions cursor intelligently...
-" inoremap <silent> <C-C> C<><LEFT><C-O>:silent call
-" SetEscapesToSkip('1l')<CR>
-"
-" " ,c in normal mode wraps the current word in C<>...
-" nmap ,c diWiC<<C-R>-><ESC>
-"
-"
-" " CTRL-E in insert mode inserts I<> and repositions cursor intelligently...
-" inoremap <silent> <C-E> I<><LEFT><C-O>:silent call
-" SetEscapesToSkip('1l')<CR>
-" " ,i or ,e in normal mode wraps the current word in I<>...
-" nmap ,i diWiI<<C-R>-><ESC>
-" nmap ,e diWiI<<C-R>-><ESC>
-"
-" " Functions to make ESC or TAB after an insertion jump to after the
-" insertion...
-"
-" function! SetEscapesToSkip (motion)
-" execute 'inoremap <silent> <ESC> <C-O>:silent call ResetEscapes()<CR><ESC>'
-" . a:motion . 'a '
-" execute 'inoremap <silent> <TAB> <C-O>:silent call ResetEscapes()<CR><ESC>'
-" . a:motion . 'a '
-" endfunction
-"
-" function! SetEscapesToNextField (motion)
-" execute 'inoremap <silent> <ESC> <ESC>:silent call SetEscapesToSkip("' .
-" a:motion .'")<CR>/????<CR>4s'
-" execute 'inoremap <silent> <TAB> <ESC>:silent call SetEscapesToSkip("' .
-" a:motion .'")<CR>/????<CR>4s'
-" endfunction
-"
-" function! ResetEscapes ()
-" iunmap <ESC>
-" call SetTabToCompletion()
-" endfunction
-"
-" function! SetTabToCompletion ()
-" inoremap <TAB> <C-R>=WordTabAsCompletion("forward")<CR>
-" endfunction
 "
 "
 " "=====[ Miscellaneous features ]==================================
