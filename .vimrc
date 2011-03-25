@@ -1,6 +1,6 @@
 "=====[ Proper colours are nice ]=================================
 
-colorscheme elflord
+colorscheme solarized
 syn on
 
 "=====[ Indenting support ]==================
