@@ -1,9 +1,21 @@
-"=====[ Proper colours are nice ]=================================
+"=====[ Pathogen init ]===========================
 
-colorscheme solarized
-syn on
+call pathogen#infect()
+"call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
 
-"=====[ Indenting support ]==================
+"=====[ Syntax and Colours ]======================
+
+colorscheme elflord
+
+" have syntax highlighting in terminals which can display colours:
+if has('syntax') && (&t_Co > 2)
+    syntax on
+endif
+
+filetype plugin on 
+
+"=====[ Indenting support ]=======================
 
 "set wrapmargin=78
 set autoindent "Retain indentation on next line
@@ -15,7 +27,7 @@ inoremap # X<C-H>#
 map %% $>i}``
 map $$ $<i}``
 
-"=====[ Highlight a common mistake ]==================================
+"=====[ Highlight a common mistake ]==============
 
 " Add new highlight combinations...
 highlight YELLOW_ON_BLACK ctermfg=yellow ctermbg=black
@@ -27,8 +39,7 @@ match WHITE_ON_RED /_ref[ ]*[[{(]\|_ref[ ]*-[^>]/
 endfunction
 call BadRefs()
 
-
-"=====[ Tab handling ]======================================
+"=====[ Tab handling ]============================
 
 set tabstop=4 "Indentation levels every four columns
 set expandtab "Convert all tabs that are typed to spaces
@@ -51,21 +62,39 @@ endfunction
 inoremap <silent> <TAB> <c-r>=WordTabAsCompletion("forward")<CR>
 inoremap <silent> <S-TAB> <c-r>=WordTabAsCompletion("backward")<CR>
 
-""=====[ Indenting support ]==================
+"=====[ Miscellaneous features ]==================
 
-"set wrapmargin=78
-"set autoindent "Retain indentation on next line
-"set smartindent "Turn on autoindenting of blocks
-"But not magic outdenting of comments...
-"inoremap # X<C-H>#
-"
-"" Indent/outdent current block...
-"map %% $>i}``
-"map $$ $<i}``
+set title "Show filename in titlebar of window
+set titleold=
 
-
-" "Square up visual selections
+"Square up visual selections
 set virtualedit=block
+
+"Show cursor location info on status line
+set ruler 
+
+"=====[ Smarter searching ]=======================
+
+set incsearch "Lookahead as search pattern specified
+set ignorecase "Ignore case in all searches...
+set smartcase "...unless uppercase letters used
+set hlsearch "Highlight all search matches
+
+"Key mapping to switch off highlighting till next search...
+map H :nohlsearch<CR>
+
+"=====[ Puppet Style Guide ]=====================
+au BufRead,BufNewFile *.pp set shiftwidth=2
+au BufRead,BufNewFile *.pp set softtabstop=2
+au BufRead,BufNewFile *.pp set filetype=puppet
+
+"====[ Syntastic ]==============================
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 
 " "=====[ Toggle syntax highlighting ]==============================
 "
@@ -78,8 +107,8 @@ set virtualedit=block
 "
 " "=====[ Miscellaneous features ]==================================
 "
-" set title "Show filename in titlebar of window
-" set titleold=
+"set title "Show filename in titlebar of window
+"set titleold=
 "
 " set nomore "Don't page long listings
 "
@@ -115,7 +144,6 @@ set virtualedit=block
 "
 " set scrolloff=2 "Scroll when 2 lines from top/bottom
 "
-" set ruler "Show cursor location info on status line
 "
 " " Use space to jump down a page (like browsers do)...
 " noremap <Space> <PageDown>
@@ -389,4 +417,6 @@ set virtualedit=block
 "
 " set spelllang=en_au
 " map <silent> ;s :setlocal invspell<CR>
+"
+"
 "
