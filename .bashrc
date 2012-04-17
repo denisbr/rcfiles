@@ -23,7 +23,7 @@ alias pparse='puppet parser validate'
 alias vimp="vim +Project"
 
 ## Settings
-PATH="$PATH:~/bin"
+PATH="$PATH:~/bin:~/.rvm/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
@@ -35,7 +35,11 @@ HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 PROMPT_COMMAND='history -a; history -n'
 
-PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \$\[\033[00m\] '
+if [ -f ~/.rvm/bin/rvm-prompt ] ; then
+   PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \[\033[01;37m\]$(~/.rvm/bin/rvm-prompt)\[\033[01;34m\] \$\[\033[00m\] '
+else
+   PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \$\[\033[00m\] '
+fi 
 
 ### Host-specifics 
 ## ltrace
