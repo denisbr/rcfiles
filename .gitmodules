@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/vim-statline"]
+	path = .vim/bundle/vim-statline
+	url = git://github.com/millermedeiros/vim-statline.git
