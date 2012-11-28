@@ -8,5 +8,5 @@ Usage
     cd rcfiles
     git submodule init
     git submodule update
-    ln -s .vimrc .bashrc .vim ~/
 
+symlink the rcfiles to ~
