@@ -23,7 +23,7 @@ alias pparse='puppet parser validate'
 alias vimp="vim +Project"
 
 ## Settings
-PATH="$PATH:~/bin"
+PATH="/usr/local/bin:$PATH:~/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
