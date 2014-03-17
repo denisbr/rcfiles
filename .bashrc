@@ -20,7 +20,7 @@ _parse_git_branch () {
 ## Aliases
 alias dcommit='git svn dcommit'
 alias pparse='puppet parser validate'
-alias vimp="vim +Project"
+alias vimp="vim +NERDTree"
 
 ## Settings
 PATH="/usr/local/bin:$PATH:~/bin"
@@ -34,6 +34,10 @@ HISTIGNORE='bg:fg:history'
 HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 PROMPT_COMMAND='history -a; history -n'
+
+if [ -f $(brew --prefix)/bin/liquidprompt ]; then
+  . $(brew --prefix)/bin/liquidprompt
+fi
 
 ## RVM Setup
 if [ -f ~/.rvm/bin/rvm-prompt ] ; then
@@ -55,3 +59,6 @@ fi
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+if [ -f ~/.aliases ] ; then
+    . ~/.aliases
+fi
