@@ -63,3 +63,6 @@ fi
 if [ -f ~/.aliases ] ; then
     . ~/.aliases
 fi
+
+# GOPATH is a troll
+GOPATH=~/git/gopath
