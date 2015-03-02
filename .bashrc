@@ -66,5 +66,3 @@ fi
 
 # GOPATH is a troll
 GOPATH=~/git/gopath
-PATH=$PATH:$GOPATH/bin
-
