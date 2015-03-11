@@ -36,8 +36,20 @@ HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 PROMPT_COMMAND='history -a; history -n'
 
+## Homebrew specifics
+# Homebrew github token
+if [ -f ~/.brew_api_token ];then
+  source ~/.brew_api_token
+fi
+
+# Liquid prompt
 if [ -f $(brew --prefix)/bin/liquidprompt ]; then
   . $(brew --prefix)/bin/liquidprompt
+fi
+
+# Homebrew based bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 ## RVM Setup
