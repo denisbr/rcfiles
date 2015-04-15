@@ -23,6 +23,10 @@ alias pparse='puppet parser validate'
 alias vimp="vim +NERDTree"
 alias gitjk="history 10 | tail -r | gitjk_cmd"
 
+# iTerm2 Badges http://iterm2.com/badges.html
+printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
+setbadge() { printf "\e]1337;SetUserVar=myBadge=%s\a" $(echo $1 | base64); }
+
 ## Settings
 PATH="/usr/local/bin:$PATH:~/bin"
 # Bash history tweaks
@@ -35,6 +39,11 @@ HISTIGNORE='bg:fg:history'
 HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 PROMPT_COMMAND='history -a; history -n'
+GOPATH=~/git/gopath
+
+# OSX Locale fix
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 ## Homebrew specifics
 # Homebrew github token
@@ -52,7 +61,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-## RVM Setup
+# Linux based bash-completion
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
+## RVM Setup & Prompt
 if [ -f ~/.rvm/bin/rvm-prompt ] ; then
    PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \[\033[01;37m\]$(~/.rvm/bin/rvm-prompt)\[\033[01;34m\] \$\[\033[00m\] '
    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -63,18 +76,13 @@ fi
 
 ### Host-specifics 
 ## ltrace
-if [ "$(hostname)" == "ltrace.linpro.no" ] ; then
-   source ~/.keychain/$(hostname)-sh
-   source /etc/bash_completion
-fi
+#if [ "$(hostname)" == "ltrace.linpro.no" ] ; then
+#   source ~/.keychain/$(hostname)-sh
+#   source /etc/bash_completion
+#fi
 
-# Use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
 
 if [ -f ~/.aliases ] ; then
     . ~/.aliases
 fi
 
-# GOPATH is a troll
-GOPATH=~/git/gopath
