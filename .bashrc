@@ -39,7 +39,7 @@ HISTIGNORE='bg:fg:history'
 HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 PROMPT_COMMAND='history -a; history -n'
-GOPATH=~/git/gopath
+export GOPATH=~/git/gopath
 
 # OSX Locale fix
 export LC_ALL=en_US.UTF-8
