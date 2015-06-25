@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ "$1" == "office" ];
+then
+    cp ~/.ssh/config_office ~/.ssh/config
+else
+    cp ~/.ssh/config_proxy ~/.ssh/config
+fi
