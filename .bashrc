@@ -22,6 +22,7 @@ alias dcommit='git svn dcommit'
 alias pparse='puppet parser validate'
 alias vimp="vim +NERDTree"
 alias gitjk="history 10 | tail -r | gitjk_cmd"
+alias sshtunnel='ssh -v -f ssh-tunnel-server -N'
 
 # iTerm2 Badges http://iterm2.com/badges.html
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)

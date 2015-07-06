@@ -1,8 +1,14 @@
 #!/bin/sh
 
-if [ "$1" == "office" ];
+scriptname=`basename "$0"`
+
+if [[ "$1" == "office" || "$scriptname" == "switch_ssh_config_office" ]];
 then
-    cp ~/.ssh/config_office ~/.ssh/config
+    echo "Switching to office ssh config."
+    cp /Users/denis/.ssh/config_office ~/.ssh/config
 else
-    cp ~/.ssh/config_proxy ~/.ssh/config
+    echo "Switching to roaming ssh config."
+    cp /Users/denis/.ssh/config_proxy ~/.ssh/config
 fi
+
+exit 0
