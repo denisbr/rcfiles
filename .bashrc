@@ -29,7 +29,8 @@ printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
 setbadge() { printf "\e]1337;SetUserVar=myBadge=%s\a" $(echo $1 | base64); }
 
 ## Settings
-PATH="/usr/local/bin:$PATH:~/bin"
+export GOPATH=~/git/gopath
+PATH="/usr/local/bin:$PATH:~/bin:$GOPATH/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
@@ -40,7 +41,6 @@ HISTIGNORE='bg:fg:history'
 HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 PROMPT_COMMAND='history -a; history -n'
-export GOPATH=~/git/gopath
 
 # OSX Locale fix
 export LC_ALL=en_US.UTF-8
@@ -87,3 +87,6 @@ if [ -f ~/.aliases ] ; then
     . ~/.aliases
 fi
 
+if [ -f ~/.iterm2_shell_integration.bash ] ; then
+    . ~/.iterm2_shell_integration.bash
+fi
