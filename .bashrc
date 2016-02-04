@@ -23,6 +23,9 @@ alias pparse='puppet parser validate'
 alias vimp="vim +NERDTree"
 alias gitjk="history 10 | tail -r | gitjk_cmd"
 alias sshtunnel='ssh -v -f ssh-tunnel-server -N'
+alias sg='s -p google'
+alias sd='s -p duckduckgo'
+alias sy='s -p youtube'
 
 # iTerm2 Badges http://iterm2.com/badges.html
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
@@ -58,8 +61,13 @@ if [ -f $(brew --prefix)/bin/liquidprompt ]; then
 fi
 
 # Homebrew based bash-completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+# OSX-bash (3.x)
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#  . $(brew --prefix)/etc/bash_completion
+#fi
+# New bash (4.x)
+if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+  . $(brew --prefix)/share/bash-completion/bash_completion
 fi
 
 # Linux based bash-completion
