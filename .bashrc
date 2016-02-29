@@ -98,3 +98,5 @@ fi
 if [ -f ~/.iterm2_shell_integration.bash ] ; then
     . ~/.iterm2_shell_integration.bash
 fi
+
+[ -s "/Users/denis/.scm_breeze/scm_breeze.sh" ] && source "/Users/denis/.scm_breeze/scm_breeze.sh"

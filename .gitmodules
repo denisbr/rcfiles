@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/vim-multiple-cursors"]
 	path = .vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule ".scm_breeze"]
+	path = .scm_breeze
+	url = git://github.com/ndbroadbent/scm_breeze.git
