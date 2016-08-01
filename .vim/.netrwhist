@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/denis/git/ansible/roles/vacdemo/defaults'
-let g:netrw_dirhist_2='/Users/denis/git/gopath/src/github.com/denisbr/filebin/.travis'
-let g:netrw_dirhist_3='/Users/denis/git/vagrant/support-debug/varnishgather-sf-varnish-plus-01-2016-02-22'
-let g:netrw_dirhist_4='/Users/denis/git/vagrant/support-debug/varnishgather-ouest-proxy05.dmz.local-2016-02-18'
-let g:netrw_dirhist_5='/Users/denis/git/vagrant/support-debug/varnishgather-ouest-proxy07.sdv.fr-2016-02-24'
-let g:netrw_dirhist_6='/Users/denis/git/vagrant/support-debug/varnishSSL/include'
-let g:netrw_dirhist_7='/Users/denis/git/vagrant/support-debug/varnishgather-ouest-proxy07.sdv.fr-2016-02-24'
