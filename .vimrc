@@ -6,7 +6,7 @@ call pathogen#infect()
 
 "=====[ Syntax and Colours ]======================
 
-colorscheme elflord
+colorscheme meta5
 
 " have syntax highlighting in terminals which can display colours:
 if has('syntax') && (&t_Co > 2)
