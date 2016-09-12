@@ -46,12 +46,12 @@
 [submodule ".vim/bundle/vim-multiple-cursors"]
 	path = .vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
-[submodule ".scm_breeze"]
-	path = .scm_breeze
-	url = git://github.com/ndbroadbent/scm_breeze.git
 [submodule ".vim/bundle/vim-terraform"]
 	path = .vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
 [submodule ".vim/bundle/meta5"]
 	path = .vim/bundle/meta5
 	url = https://github.com/christophermca/meta5.git
+[submodule ".vim/bundle/vim-gocode"]
+	path = .vim/bundle/vim-gocode
+	url = https://github.com/Blackrush/vim-gocode.git
