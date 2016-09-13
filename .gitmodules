@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/go-explorer"]
 	path = .vim/bundle/go-explorer
 	url = https://github.com/garyburd/go-explorer.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
