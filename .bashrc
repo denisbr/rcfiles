@@ -18,6 +18,7 @@ _parse_git_branch () {
 }
 
 ## Aliases
+alias ctags='/usr/local/bin/ctags'
 alias dcommit='git svn dcommit'
 alias pparse='puppet parser validate'
 alias vim='/usr/local/bin/vim'
