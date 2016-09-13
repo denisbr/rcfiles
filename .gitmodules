@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-gocode"]
 	path = .vim/bundle/vim-gocode
 	url = https://github.com/Blackrush/vim-gocode.git
+[submodule ".vim/bundle/go-explorer"]
+	path = .vim/bundle/go-explorer
+	url = https://github.com/garyburd/go-explorer.git
