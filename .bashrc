@@ -36,9 +36,12 @@ alias playchk='ansible-playbook --check'
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
 setbadge() { printf "\e]1337;SetUserVar=myBadge=%s\a" $(echo $1 | base64); }
 
+# SSHDO
+sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host -C sudo "$*"; }
+
 ## Settings
 export GOPATH=~/git/gopath
-PATH="/usr/local/bin:$PATH:~/bin:$GOPATH/bin"
+PATH="/usr/local/sbin:$PATH:/usr/local/bin:$PATH:~/bin:$GOPATH/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
