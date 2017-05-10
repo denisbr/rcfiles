@@ -35,6 +35,8 @@ alias playchk='ansible-playbook --check'
 # iTerm2 Badges http://iterm2.com/badges.html
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
 setbadge() { printf "\e]1337;SetUserVar=myBadge=%s\a" $(echo $1 | base64); }
+settitle() { printf "\033];%s\007" $(echo $1); }
+setname() { setbadge $1; settitle $1; }
 
 # SSHDO
 sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host -C sudo "$*"; }
