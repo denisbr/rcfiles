@@ -19,6 +19,11 @@ filetype plugin on
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+"=====[ vim-airline ]=============================
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='term'
+
 "=====[ Indenting support ]=======================
 
 "set wrapmargin=78
