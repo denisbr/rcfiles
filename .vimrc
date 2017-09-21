@@ -15,6 +15,10 @@ endif
 
 filetype plugin on 
 
+" Flag extraneous whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 "=====[ Indenting support ]=======================
 
 "set wrapmargin=78
@@ -73,6 +77,9 @@ set virtualedit=block
 "Show cursor location info on status line
 set ruler 
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 "=====[ Smarter searching ]=======================
 
 set incsearch "Lookahead as search pattern specified
@@ -94,6 +101,11 @@ let g:syntastic_auto_loc_list=1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"====[ Python ]=================================
+au BufRead,BufNewFile *.py set encoding=utf-8
+let python_highlight_all=1
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 "====[ CtrlP ]==================================
 let g:ctrlp_map = '<c-p>'
