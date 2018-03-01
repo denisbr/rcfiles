@@ -31,6 +31,19 @@ alias sy='s -p youtube'
 alias playbook='ansible-playbook site.yml'
 alias playchksyn='ansible-playbook --syntax-check'
 alias playchk='ansible-playbook --check'
+alias purgevagrant='aws cloudfront create-invalidation --distribution-id E2R3BGGW75HR1Y --paths "/vagrant/*"'
+alias pushpackage='/Users/denis/git/packagecloud-tools/pushpackage'
+alias listpackages='/Users/denis/git/packagecloud-tools/listpackages'
+alias yankpackages='/Users/denis/git/packagecloud-tools/yankpackages'
+alias copypackages='/Users/denis/git/packagecloud-tools/copypackages'
+alias promotepackages='/Users/denis/git/packagecloud-tools/promotepackages'
+alias downloadpackages='/Users/denis/git/packagecloud-tools/downloadpackages'
+
+# Remove offending ssh-keys
+sshrmkey() { vim "+d$1|x" ~/.ssh/known_hosts; }
+
+# Youtube dl wrapper for ios compat
+ydl() { youtube-dl --merge-output-format mp4 -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1; }
 
 # iTerm2 Badges http://iterm2.com/badges.html
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
