@@ -54,9 +54,14 @@ setname() { setbadge $1; settitle $1; }
 # SSHDO
 sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host -C sudo "$*"; }
 
+# OSX netstat wrapper
+notstat() {
+    lsof -i -P | grep -i "listen"
+}
+
 ## Settings
 export GOPATH=~/git/gopath
-PATH="/usr/local/sbin:$PATH:/usr/local/bin:$PATH:~/bin:$GOPATH/bin"
+PATH="/usr/local/sbin:$PATH:/usr/local/bin:~/bin:$GOPATH/bin:~/.npm-global/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
@@ -85,9 +90,9 @@ fi
 
 # Homebrew based bash-completion
 # OSX-bash (3.x)
-#if [ -f $(brew --prefix)/etc/bash_completion ]; then
-#  . $(brew --prefix)/etc/bash_completion
-#fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 # New bash (4.x)
 if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
   . $(brew --prefix)/share/bash-completion/bash_completion

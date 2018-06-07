@@ -122,6 +122,7 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:syntastic_python_checkers = ['pycodestyle']
 
 "====[ vim-go ]==================================
 let g:go_highlight_functions = 1
