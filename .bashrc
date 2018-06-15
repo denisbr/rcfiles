@@ -31,13 +31,6 @@ alias sy='s -p youtube'
 alias playbook='ansible-playbook site.yml'
 alias playchksyn='ansible-playbook --syntax-check'
 alias playchk='ansible-playbook --check'
-alias purgevagrant='aws cloudfront create-invalidation --distribution-id E2R3BGGW75HR1Y --paths "/vagrant/*"'
-alias pushpackage='/Users/denis/git/packagecloud-tools/pushpackage'
-alias listpackages='/Users/denis/git/packagecloud-tools/listpackages'
-alias yankpackages='/Users/denis/git/packagecloud-tools/yankpackages'
-alias copypackages='/Users/denis/git/packagecloud-tools/copypackages'
-alias promotepackages='/Users/denis/git/packagecloud-tools/promotepackages'
-alias downloadpackages='/Users/denis/git/packagecloud-tools/downloadpackages'
 
 # Remove offending ssh-keys
 sshrmkey() { vim "+d$1|x" ~/.ssh/known_hosts; }
@@ -83,11 +76,6 @@ if [ -f ~/.brew_api_token ];then
   source ~/.brew_api_token
 fi
 
-# Liquid prompt
-if [ -f $(brew --prefix)/bin/liquidprompt ]; then
-  . $(brew --prefix)/bin/liquidprompt
-fi
-
 # Homebrew based bash-completion
 # OSX-bash (3.x)
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -102,22 +90,8 @@ fi
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
-## RVM Setup & Prompt
-if [ -f ~/.rvm/bin/rvm-prompt ] ; then
-   PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \[\033[01;37m\]$(~/.rvm/bin/rvm-prompt)\[\033[01;34m\] \$\[\033[00m\] '
-   PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
-else
-   PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \$\[\033[00m\] '
-fi 
-
-### Host-specifics 
-## ltrace
-#if [ "$(hostname)" == "ltrace.linpro.no" ] ; then
-#   source ~/.keychain/$(hostname)-sh
-#   source /etc/bash_completion
-#fi
-
+## Prompt (pre-powerline)
+#PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \$\[\033[00m\] '
 
 if [ -f ~/.aliases ] ; then
     . ~/.aliases
@@ -127,4 +101,7 @@ if [ -f ~/.iterm2_shell_integration.bash ] ; then
     . ~/.iterm2_shell_integration.bash
 fi
 
-#[ -s "/Users/denis/.scm_breeze/scm_breeze.sh" ] && source "/Users/denis/.scm_breeze/scm_breeze.sh"
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. ~/git/rcfiles/powerline/powerline/bindings/bash/powerline.sh
