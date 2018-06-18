@@ -1,37 +1,4 @@
 ## Functions
-_dir_chomp () {
-    local p=${1/#$HOME/\~} b s
-    s=${#p}
-    while [[ $p != ${p//\/} ]]&&(($s>$2))
-    do
-        p=${p#/}
-        [[ $p =~ \.?. ]]
-        b=$b/${BASH_REMATCH[0]}
-        p=${p#*/}
-        ((s=${#b}+${#p}))
-    done
-    echo ${b/\/~/\~}${b+/}$p
-}
-
-_parse_git_branch () {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [git:\1]/'
-}
-
-## Aliases
-alias ctags='/usr/local/bin/ctags'
-alias dcommit='git svn dcommit'
-alias pparse='puppet parser validate'
-alias vim='/usr/local/bin/vim'
-alias vimp='vim +NERDTree'
-alias gitjk='history 10 | tail -r | gitjk_cmd'
-alias sshtunnel='ssh -v -f ssh-tunnel-server -N'
-alias sg='s -p google'
-alias sd='s -p duckduckgo'
-alias sy='s -p youtube'
-alias playbook='ansible-playbook site.yml'
-alias playchksyn='ansible-playbook --syntax-check'
-alias playchk='ansible-playbook --check'
-
 # Remove offending ssh-keys
 sshrmkey() { vim "+d$1|x" ~/.ssh/known_hosts; }
 
@@ -51,6 +18,21 @@ sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host
 notstat() {
     lsof -i -P | grep -i "listen"
 }
+
+## Aliases
+alias ctags='/usr/local/bin/ctags'
+alias dcommit='git svn dcommit'
+alias pparse='puppet parser validate'
+alias vim='/usr/local/bin/vim'
+alias vimp='vim +NERDTree'
+alias gitjk='history 10 | tail -r | gitjk_cmd'
+alias sshtunnel='ssh -v -f ssh-tunnel-server -N'
+alias sg='s -p google'
+alias sd='s -p duckduckgo'
+alias sy='s -p youtube'
+alias playbook='ansible-playbook site.yml'
+alias playchksyn='ansible-playbook --syntax-check'
+alias playchk='ansible-playbook --check'
 
 ## Settings
 export GOPATH=~/git/gopath
@@ -72,36 +54,29 @@ export LANG=en_US.UTF-8
 
 ## Homebrew specifics
 # Homebrew github token
-if [ -f ~/.brew_api_token ];then
-  source ~/.brew_api_token
-fi
+[ -f ~/.brew_api_token ] && source ~/.brew_api_token
 
 # Homebrew based bash-completion
 # OSX-bash (3.x)
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+[ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion || true
+
 # New bash (4.x)
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-  . $(brew --prefix)/share/bash-completion/bash_completion
-fi
+[ -f $(brew --prefix)/share/bash-completion/bash_completion ] && source $(brew --prefix)/share/bash-completion/bash_completion || true
 
 # Linux based bash-completion
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
+[ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion || true
 
-## Prompt (pre-powerline)
-#PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] $(_dir_chomp "$(pwd)" 20)\[\033[01;37m\]$(_parse_git_branch)\[\033[01;34m\] \$\[\033[00m\] '
+# Local aliases
+[ -f ~/.aliases ] && source ~/.aliases
 
-if [ -f ~/.aliases ] ; then
-    . ~/.aliases
-fi
+[ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
 
-if [ -f ~/.iterm2_shell_integration.bash ] ; then
-    . ~/.iterm2_shell_integration.bash
-fi
-
+# Powerline startup
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. ~/git/rcfiles/powerline/powerline/bindings/bash/powerline.sh
+[ -f ~/git/rcfiles/powerline/powerline/bindings/bash/powerline.sh ] && source ~/git/rcfiles/powerline/powerline/bindings/bash/powerline.sh
+
+# FuZzy Finder (FZF) setup
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
