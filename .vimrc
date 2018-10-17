@@ -20,8 +20,8 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 "=====[ non breaking space ]======================
-set list
-set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+"set list
+"set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
 
 "=====[ vim-airline ]=============================
 

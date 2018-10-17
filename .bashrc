@@ -6,6 +6,10 @@ sshrmkey() { vim "+d$1|x" ~/.ssh/known_hosts; }
 ydl() { youtube-dl --merge-output-format mp4 -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1; }
 
 # iTerm2 Badges http://iterm2.com/badges.html
+#function iterm2_print_user_vars() {
+#  iterm2_set_user_var myBadge "foo";
+#}
+
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
 setbadge() { printf "\e]1337;SetUserVar=myBadge=%s\a" $(echo $1 | base64); }
 settitle() { printf "\033];%s\007" $(echo $1); }
@@ -14,12 +18,8 @@ setname() { setbadge $1; settitle $1; }
 # SSHDO
 sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host -C sudo "$*"; }
 
-# OSX netstat wrapper
-notstat() {
-    lsof -i -P | grep -i "listen"
-}
-
 ## Aliases
+alias notstat='lsof -i -P | grep -i "listen"'
 alias ctags='/usr/local/bin/ctags'
 alias dcommit='git svn dcommit'
 alias pparse='puppet parser validate'
@@ -36,7 +36,7 @@ alias playchk='ansible-playbook --check'
 
 ## Settings
 export GOPATH=~/git/gopath
-PATH="/usr/local/sbin:$PATH:/usr/local/bin:~/bin:$GOPATH/bin:~/.npm-global/bin"
+PATH="/usr/local/opt/curl/bin:/usr/local/sbin:$PATH:/usr/local/bin:~/bin:$GOPATH/bin:~/.npm-global/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
@@ -69,8 +69,6 @@ export LANG=en_US.UTF-8
 # Local aliases
 [ -f ~/.aliases ] && source ~/.aliases
 
-[ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
-
 # Powerline startup
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
@@ -80,3 +78,16 @@ POWERLINE_BASH_SELECT=1
 # FuZzy Finder (FZF) setup
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Jenv setup
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Pyenv setup
+eval "$(pyenv init -)"
+
+# iTerm2 Integration startup
+[ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
+
+# Timing integration
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
