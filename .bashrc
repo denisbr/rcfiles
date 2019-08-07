@@ -9,6 +9,8 @@ ydl() { youtube-dl --merge-output-format mp4 -f 'bestvideo[ext=mp4]+bestaudio[ex
 #function iterm2_print_user_vars() {
 #  iterm2_set_user_var myBadge "foo";
 #}
+# Status cats
+httpcat() { curl -s --output - https://http.cat/$1 | imgcat; }
 
 printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n "\(user.myBadge)" | base64)
 setbadge() { printf "\e]1337;SetUserVar=myBadge=%s\a" $(echo $1 | base64); }
@@ -22,6 +24,7 @@ sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host
 alias notstat='lsof -i -P | grep -i "listen"'
 alias ctags='/usr/local/bin/ctags'
 alias dcommit='git svn dcommit'
+alias dbash='docker exec -it $(docker ps -n 1 -q) bash' 
 alias pparse='puppet parser validate'
 alias vim='/usr/local/bin/vim'
 alias vimp='vim +NERDTree'
@@ -33,10 +36,15 @@ alias sy='s -p youtube'
 alias playbook='ansible-playbook site.yml'
 alias playchksyn='ansible-playbook --syntax-check'
 alias playchk='ansible-playbook --check'
+#alias gproxy='ssh -f -nNT gitproxy'
+alias gproxy='sudo -E ssh -o ConnectTimeout=60 -F $HOME/.ssh/config -f -nNT gitproxy'
+alias gproxy-status='sudo ssh -O check gitproxy'
+alias gproxy-off='sudo ssh -O exit gitproxy'
+alias ls='lsd'
 
 ## Settings
 export GOPATH=~/git/gopath
-PATH="/usr/local/opt/curl/bin:/usr/local/sbin:$PATH:/usr/local/bin:~/bin:$GOPATH/bin:~/.npm-global/bin"
+PATH="/usr/local/opt/curl/bin:/usr/local/sbin:$PATH:/usr/local/bin:~/bin:$GOPATH/bin:~/.npm-global/bin:~/bin:/usr/local/lib/ruby/gems/2.5.0/bin/:/Users/denis/.cargo/bin"
 # Bash history tweaks
 # http://blog.sanctum.geek.nz/better-bash-history/
 shopt -s histappend
@@ -84,9 +92,14 @@ eval "$(jenv init -)"
 
 # Pyenv setup
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # iTerm2 Integration startup
 [ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
+
+# GPG Setup
+export GPG_TTY=$(tty)
+export PINENTRY_USER_DATA="USE_CURSES=1"
 
 # Timing integration
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'

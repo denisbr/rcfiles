@@ -6,7 +6,8 @@ call pathogen#infect()
 
 "=====[ Syntax and Colours ]======================
 
-colorscheme meta5
+" colorscheme meta5
+colorscheme ir_black
 
 " have syntax highlighting in terminals which can display colours:
 if has('syntax') && (&t_Co > 2)
@@ -27,6 +28,10 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='term'
+
+"=====[ cfn-lint ]=============================
+
+let g:syntastic_cloudformation_checkers = ['cfn_lint']
 
 "=====[ Indenting support ]=======================
 
@@ -116,6 +121,9 @@ au BufRead,BufNewFile *.py set encoding=utf-8
 let python_highlight_all=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
+"====[ Jenkinsfile ]============================
+au BufRead,BufNewFile Jenkinsfile* set filetype=groovy
+
 "====[ CtrlP ]==================================
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -123,6 +131,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:syntastic_python_checkers = ['pycodestyle']
+let g:syntastic_python_pycodestyle_args = ['--max-line-length=119']
 
 "====[ vim-go ]==================================
 let g:go_highlight_functions = 1
@@ -460,6 +469,5 @@ set rtp+=/usr/local/opt/fzf
 "
 " set spelllang=en_au
 " map <silent> ;s :setlocal invspell<CR>
-"
 "
 "

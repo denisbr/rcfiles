@@ -1,33 +1,33 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+	url = https://github.com/scrooloose/syntastic
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive
 [submodule ".vim/bundle/salt-vim"]
 	path = .vim/bundle/salt-vim
-	url = https://github.com/saltstack/salt-vim.git
+	url = https://github.com/saltstack/salt-vim
 [submodule ".vim/bundle/vim-merginal"]
 	path = .vim/bundle/vim-merginal
-	url = https://github.com/idanarye/vim-merginal.git
+	url = https://github.com/idanarye/vim-merginal
 [submodule ".vim/bundle/vim-extradite"]
 	path = .vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
+	url = https://github.com/fatih/vim-go
 [submodule ".vim/bundle/terminus"]
 	path = .vim/bundle/terminus
-	url = https://github.com/wincent/terminus.git
+	url = https://github.com/wincent/terminus
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/kien/ctrlp.vim
 [submodule ".vim/bundle/ansible-vim"]
 	path = .vim/bundle/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim
@@ -36,13 +36,13 @@
 	url = https://github.com/terryma/vim-multiple-cursors
 [submodule ".vim/bundle/vim-terraform"]
 	path = .vim/bundle/vim-terraform
-	url = https://github.com/hashivim/vim-terraform.git
+	url = https://github.com/hashivim/vim-terraform
 [submodule ".vim/bundle/meta5"]
 	path = .vim/bundle/meta5
-	url = https://github.com/christophermca/meta5.git
+	url = https://github.com/christophermca/meta5
 [submodule ".vim/bundle/vim-gocode"]
 	path = .vim/bundle/vim-gocode
-	url = https://github.com/Blackrush/vim-gocode.git
+	url = https://github.com/Blackrush/vim-gocode
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
@@ -60,16 +60,25 @@
 	url = https://github.com/vim-airline/vim-airline-themes
 [submodule ".vim/bundle/tlib_vim"]
 	path = .vim/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
+	url = https://github.com/tomtom/tlib_vim
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+	url = https://github.com/MarcWeber/vim-addon-mw-utils
 [submodule ".vim/bundle/vim-snipmate"]
 	path = .vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
+	url = https://github.com/garbas/vim-snipmate
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
+	url = https://github.com/honza/vim-snippets
 [submodule "powerline"]
 	path = powerline
 	url = https://github.com/powerline/powerline
+[submodule ".vim/bundle/vim-cfn"]
+	path = .vim/bundle/vim-cfn
+	url = https://github.com/speshak/vim-cfn
+[submodule ".vim/bundle/vim-irblack"]
+	path = .vim/bundle/vim-irblack
+	url = https://github.com/wesgibbs/vim-irblack
+[submodule ".vim/bundle/jedi-vim"]
+	path = .vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim
