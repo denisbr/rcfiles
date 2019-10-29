@@ -104,3 +104,10 @@ export PINENTRY_USER_DATA="USE_CURSES=1"
 # Timing integration
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
+
+# SAM Telemetry disable
+export SAM_CLI_TELEMETRY=0
+
+# Case insensitive auto-completion
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
