@@ -111,3 +111,6 @@ export SAM_CLI_TELEMETRY=0
 # Case insensitive auto-completion
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
+
+# I like bash
+export BASH_SILENCE_DEPRECATION_WARNING=1
