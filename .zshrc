@@ -16,7 +16,8 @@ export LANG=en_US.UTF-8
 #
 # User configuration sourced by interactive shells
 #
-export PATH=~/.dotfiles/bin:~/.local/bin:$PATH
+export GOPATH=~/git/gopath
+export PATH=~/Library/Python/3.7/bin:~/.dotfiles/bin:~/.local/bin:$PATH:~/git/gopath/bin
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -168,6 +169,8 @@ alias gproxy='sudo -E ssh -o ConnectTimeout=60 -F $HOME/.ssh/config -f -nNT gitp
 alias gproxy-status='sudo ssh -O check gitproxy'
 alias gproxy-off='sudo ssh -O exit gitproxy'
 alias ls='lsd'
+alias python3.8='/usr/local/opt/python@3.8/bin/python3'
+alias pip3.8='/usr/local/opt/python@3.8/bin/pip3'
 
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
