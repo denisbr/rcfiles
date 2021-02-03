@@ -1,9 +1,11 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # OSX Locale fix
 export LC_ALL=en_US.UTF-8
@@ -17,7 +19,7 @@ export LANG=en_US.UTF-8
 # User configuration sourced by interactive shells
 #
 export GOPATH=~/git/gopath
-export PATH=~/.local/bin:~/Library/Python/3.8/bin:~/.dotfiles/bin:~/.local/bin:~/git/gopath/bin:~/.npm-global/bin:$PATH
+export PATH=~/.local/bin:~/Library/Python/3.8/bin:~/.dotfiles/bin:~/git/gopath/bin:~/.npm-global/bin:/usr/local/sbin:$PATH
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -170,6 +172,8 @@ alias gproxy-status='sudo ssh -O check gitproxy'
 alias gproxy-off='sudo ssh -O exit gitproxy'
 alias ls='lsd'
 alias blakk='black --skip-string-normalization --line-length=120'
+alias k=kubectl
+alias kn='kubectl config set-context --current --namespace'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
 
 export PATH="$HOME/.jenv/bin:$PATH"

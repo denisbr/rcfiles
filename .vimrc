@@ -7,7 +7,13 @@ call pathogen#infect()
 "=====[ Syntax and Colours ]======================
 
 " colorscheme meta5
-colorscheme ir_black
+" colorscheme ir_black
+" colorscheme dracula
+
+packadd! dracula_pro
+syntax enable
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
 
 " have syntax highlighting in terminals which can display colours:
 if has('syntax') && (&t_Co > 2)

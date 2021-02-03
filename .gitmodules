@@ -88,3 +88,9 @@
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule ".vim/bundle/dracula"]
+	path = .vim/bundle/dracula
+	url = https://github.com/dracula/vim.git
+[submodule ".vim/bundle/vimagit"]
+	path = .vim/bundle/vimagit
+	url = https://github.com/jreybert/vimagit
