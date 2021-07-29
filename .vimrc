@@ -154,6 +154,9 @@ let g:go_list_type = "quickfix"
 "====[ fzf ]==================================
 set rtp+=/usr/local/opt/fzf
 
+"====[ terraform ]============================
+let g:terraform_fmt_on_save = 1
+
 " "=====[ Toggle syntax highlighting ]==============================
 "
 " nmap <silent> ;y : if exists("syntax_on") <BAR>

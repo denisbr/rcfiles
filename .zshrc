@@ -18,8 +18,17 @@ export LANG=en_US.UTF-8
 #
 # User configuration sourced by interactive shells
 #
+export PATH=~/.local/bin:~/Library/Python/3.9/bin:~/.dotfiles/bin:~/git/gopath/bin:~/.npm-global/bin:/usr/local/sbin:$PATH
+
+# Golang
 export GOPATH=~/git/gopath
-export PATH=~/.local/bin:~/Library/Python/3.8/bin:~/.dotfiles/bin:~/git/gopath/bin:~/.npm-global/bin:/usr/local/sbin:$PATH
+
+# Groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+# Java
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -176,6 +185,4 @@ alias k=kubectl
 alias kn='kubectl config set-context --current --namespace'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
