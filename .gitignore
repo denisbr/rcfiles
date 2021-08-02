@@ -1,1 +1,5 @@
+.DS_Store
 .vim/.netrwhist
+.vim/pack/themes/start/dracula_pro
+.config/karabiner/automatic_backups/
+dracula
