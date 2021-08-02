@@ -1,0 +1,6 @@
+[user]
+    name = Denis Brækhus
+    email = denisb@dnb.no
+	signingkey = BF1B4A09B034C291
+[commit]
+    template = ~/.gitmessage
