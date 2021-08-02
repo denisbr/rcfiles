@@ -35,6 +35,10 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let g:airline_powerline_fonts = 1
 let g:airline_theme='term'
 
+"=====[ snipmate ]=============================
+
+let g:snipMate = { 'snippet_version' : 1 }
+
 "=====[ cfn-lint ]=============================
 
 let g:syntastic_cloudformation_checkers = ['cfn_lint']

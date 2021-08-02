@@ -5,7 +5,7 @@
     helper = osxkeychain
 [user]
     name = Denis Brækhus
-    email = denis@varnish-software.com
+    email = denis@denis.no
 [push]
     default = simple
 [alias]
