@@ -2,4 +2,8 @@
 .vim/.netrwhist
 .vim/pack/themes/start/dracula_pro
 .config/karabiner/automatic_backups/
+.config/containers
+.config/NuGet
+.config/iterm2/AppSupport
+.config/qBittorrent
 dracula
