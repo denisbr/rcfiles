@@ -106,7 +106,7 @@ fi
 
 
 # And kubectl command completion.
-source <(kubectl completion zsh)
+[[ -x /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
 [[ -x /usr/bin/fortune && -x /usr/bin/cowsay ]] && fortune /usr/share/fortune/vimtips | cowsay -f moose
 
@@ -176,13 +176,16 @@ alias sy='s -p youtube'
 alias playbook='ansible-playbook site.yml'
 alias playchksyn='ansible-playbook --syntax-check'
 alias playchk='ansible-playbook --check'
-alias gproxy='sudo -E ssh -o ConnectTimeout=60 -F $HOME/.ssh/config -f -nNT gitproxy'
-alias gproxy-status='sudo ssh -O check gitproxy'
-alias gproxy-off='sudo ssh -O exit gitproxy'
+alias gproxy='gproxy2 login'
+alias gproxy-status='gproxy2 status'
+alias gproxy-off='gproxy2 off'
 alias ls='lsd'
 alias blakk='black --skip-string-normalization --line-length=120'
 alias k=kubectl
 alias kn='kubectl config set-context --current --namespace'
+alias docker='podman'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
+
+export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
