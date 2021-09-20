@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>Command</key>
 	<string></string>
 	<key>Custom Color Presets</key>
@@ -3135,15 +3137,15 @@
 					<key>parameter</key>
 					<string>echo \1 | pbcopy</string>
 					<key>partial</key>
-					<true/>
+					<false/>
 					<key>regex</key>
-					<string>To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
+					<string>DISABLED: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
 				</dict>
 				<dict>
 					<key>action</key>
 					<string>ScriptTrigger</string>
 					<key>parameter</key>
-					<string>/Users/denis/git/python-devicelogin/devicelogin.py \1 denis.brakhus@tech-01.net</string>
+					<string>/Users/denis/git/work/python-devicelogin/devicelogin.py \1 denis.brakhus@tech-01.net</string>
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
@@ -6719,6 +6721,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>SearchCommand</key>
+	<string>https://duckduckgo.com/?q=%@</string>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
