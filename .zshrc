@@ -176,16 +176,19 @@ alias sy='s -p youtube'
 alias playbook='ansible-playbook site.yml'
 alias playchksyn='ansible-playbook --syntax-check'
 alias playchk='ansible-playbook --check'
-alias gproxy='gproxy2 login'
+alias gproxy='gproxy-auto.sh'
+#alias gproxy='gproxy2 login'
 alias gproxy-status='gproxy2 status'
 alias gproxy-off='gproxy2 off'
 alias ls='lsd'
 alias blakk='black --skip-string-normalization --line-length=120'
 alias k=kubectl
 alias kn='kubectl config set-context --current --namespace'
-alias docker='podman'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+
+# ECS tool
+source <(ecs completion zsh)
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

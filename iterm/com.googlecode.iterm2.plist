@@ -3133,41 +3133,11 @@
 			<array>
 				<dict>
 					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>echo \1 | pbcopy</string>
-					<key>partial</key>
-					<false/>
-					<key>regex</key>
-					<string>DISABLED: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>/Users/denis/git/work/python-devicelogin/devicelogin.py \1 denis.brakhus@tech-01.net</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>To sign in, use a web browser to open the page .* and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
 					<string>iTermHyperlinkTrigger</string>
 					<key>parameter</key>
 					<string>https://jira.tech.dnb.no/browse/\1</string>
 					<key>regex</key>
 					<string>(APISHASL-\d+)</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>SendTextTrigger</string>
-					<key>parameter</key>
-					<string>denis.brakhus\n</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>User for nexus.tech.dnb.no:</string>
 				</dict>
 				<dict>
 					<key>action</key>
@@ -5801,46 +5771,6 @@
 			<array>
 				<dict>
 					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>/Users/denis/git/python-devicelogin/quick.py \1 denis.brakhus@tech-01.net</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>DISABLED: To sign in, use a web browser to open the page .* and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>echo \1 | pbcopy</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>SendTextTrigger</string>
-					<key>parameter</key>
-					<string>\n</string>
-					<key>partial</key>
-					<false/>
-					<key>regex</key>
-					<string>DISABLED: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>/Users/denis/git/python-devicelogin/quick.py \1 denis.brakhus@tech-01.net</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>To sign in, use a web browser to open the page .* and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
 					<string>iTermHyperlinkTrigger</string>
 					<key>parameter</key>
 					<string>https://jira.tech.dnb.no/browse/\1</string>
@@ -6621,46 +6551,6 @@
 			<array>
 				<dict>
 					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>/Users/denis/git/python-devicelogin/quick.py \1 denis.brakhus@tech-01.net</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>DISABLED: To sign in, use a web browser to open the page .* and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>echo \1 | pbcopy</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>SendTextTrigger</string>
-					<key>parameter</key>
-					<string>\n</string>
-					<key>partial</key>
-					<false/>
-					<key>regex</key>
-					<string>DISABLED: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>ScriptTrigger</string>
-					<key>parameter</key>
-					<string>/Users/denis/git/python-devicelogin/quick.py \1 denis.brakhus@tech-01.net</string>
-					<key>partial</key>
-					<true/>
-					<key>regex</key>
-					<string>To sign in, use a web browser to open the page .* and enter the code (.*) to authenticate.</string>
-				</dict>
-				<dict>
-					<key>action</key>
 					<string>iTermHyperlinkTrigger</string>
 					<key>parameter</key>
 					<string>https://jira.tech.dnb.no/browse/\1</string>
@@ -6728,6 +6618,8 @@
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>VisualIndicatorForEsc</key>
+	<false/>
+	<key>kTurnOffSlowTriggersOfferUserDefaultsKey</key>
 	<false/>
 </dict>
 </plist>
