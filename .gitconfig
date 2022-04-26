@@ -17,11 +17,11 @@
 [gpg]
     program = gpg
 [commit]
-    gpgSign = true
+    gpgSign = false
 [help]
 	autocorrect = 20
 [core]
-    pager = delta --dark --theme='Nord' --hunk-color=white --file-color=white
+    pager = delta --dark --syntax-theme='Nord'
 [interactive]
     diffFilter = delta --color-only
 [credential]
@@ -42,3 +42,5 @@
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/git/work/"]
   	path = ~/.gitconfig-work
+[init]
+	defaultBranch = main

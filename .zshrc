@@ -30,6 +30,13 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -188,7 +195,6 @@ alias kn='kubectl config set-context --current --namespace'
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 
-# ECS tool
-source <(ecs completion zsh)
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

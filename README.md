@@ -14,9 +14,9 @@ symlink the rcfiles to ~
 
 ### Add 
 
-   cd ~/git/rcfiles/.vim/bundle
-   git submodule add https://github.com/hacker/some-module
-   git commit
+    cd ~/git/rcfiles/.vim/bundle
+    git submodule add https://github.com/hacker/some-module
+    git commit
 
 ### Update
 

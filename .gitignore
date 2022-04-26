@@ -6,4 +6,8 @@
 .config/NuGet
 .config/iterm2/AppSupport
 .config/qBittorrent
+.config/citra-emu
+.config/filezilla
+.config/gcloud
+.config/gh/hosts.yml
 dracula
