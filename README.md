@@ -1,6 +1,8 @@
+# rcfiles
+
 My personal rcfiles.
 
-# Usage
+## Usage
 
     cd ~/git/
     git clone git://github.com/denisbr/rcfiles.git
@@ -32,6 +34,6 @@ symlink the rcfiles to ~
     rm -rf .vim/bundle/some-module
     rm -rf .git/modules/.vim/bundle/some-module
 
-# TODO
+## TODO
 
 * Use Taskfile for automation
