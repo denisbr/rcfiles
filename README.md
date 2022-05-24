@@ -31,3 +31,7 @@ symlink the rcfiles to ~
     git commit -m "Remove some-module"
     rm -rf .vim/bundle/some-module
     rm -rf .git/modules/.vim/bundle/some-module
+
+# TODO
+
+* Use Taskfile for automation
