@@ -2,7 +2,7 @@
     name = Denis Brækhus
     email = denis.braekhus@coop.no
 [commit]
-    gpgSign = false
-#	signingkey = BF1B4A09B034C291
+    gpgSign = true
+	signingkey = 7A24D678FE39F76C
 #[commit]
 #    template = ~/.gitmessage

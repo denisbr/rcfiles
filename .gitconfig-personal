@@ -1,4 +1,6 @@
 [user]
     name = Denis Brækhus
     email = denis@denis.no
-    signingkey = D3E8FEDDA9F08A55 
+[commit]
+    gpgSign = true
+    signingkey = ECF240BFF0F617F6
