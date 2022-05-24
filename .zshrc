@@ -5,7 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+export HOMEBREW_HOME=/opt/homebrew/
+
+source $HOMEBREW_HOME/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # OSX Locale fix
 export LC_ALL=en_US.UTF-8
@@ -37,7 +39,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=$HOMEBREW_HOME/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug bobsoppe/zsh-ssh-agent
@@ -195,6 +197,6 @@ alias kn='kubectl config set-context --current --namespace'
 
 export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "$HOMEBREW_HOME/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
