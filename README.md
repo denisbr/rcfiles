@@ -1,4 +1,4 @@
-My personal rcfiles, vim config etc.
+My personal rcfiles.
 
 # Usage
 
