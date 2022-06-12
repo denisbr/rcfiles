@@ -1,14 +1,28 @@
-"=====[ Pathogen init ]===========================
+set nocompatible
 
-call pathogen#infect()
-"call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
+"=====[ Vim-Plug init ]===========================
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go'
+Plug 'hashivim/vim-terraform'
+Plug 'junegunn/vim-plug'
+Plug 'SirVer/ultisnips'
+Plug 'dense-analysis/ale'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'wellle/context.vim'
+Plug 'jreybert/vimagit'
+Plug 'wincent/terminus'
+Plug 'wincent/ferret'
+" Plug 'godlygeek/tabular'
+" Plug 'mg979/vim-visual-multi'
+
+call plug#end()
 
 "=====[ Syntax and Colours ]======================
-
-" colorscheme meta5
-" colorscheme ir_black
-" colorscheme dracula
 
 packadd! dracula_pro
 syntax enable
