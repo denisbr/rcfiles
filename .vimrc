@@ -39,10 +39,6 @@ let g:airline_theme='term'
 
 let g:snipMate = { 'snippet_version' : 1 }
 
-"=====[ cfn-lint ]=============================
-
-let g:syntastic_cloudformation_checkers = ['cfn_lint']
-
 "=====[ Indenting support ]=======================
 
 "set wrapmargin=78
@@ -119,13 +115,6 @@ au BufRead,BufNewFile *.pp set shiftwidth=2
 au BufRead,BufNewFile *.pp set softtabstop=2
 au BufRead,BufNewFile *.pp set filetype=puppet
 
-"====[ Syntastic ]==============================
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 "====[ Python ]=================================
 au BufRead,BufNewFile *.py set encoding=utf-8
 let python_highlight_all=1
@@ -140,8 +129,6 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-let g:syntastic_python_checkers = ['pycodestyle']
-let g:syntastic_python_pycodestyle_args = ['--max-line-length=119']
 
 "====[ vim-go ]==================================
 let g:go_highlight_functions = 1
@@ -150,9 +137,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-"let g:go_fmt_command = "goimports"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
 
 "====[ fzf ]==================================
