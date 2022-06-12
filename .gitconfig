@@ -42,3 +42,6 @@
   	path = ~/.gitconfig-work
 [init]
 	defaultBranch = main
+[user]
+	name = Denis Brækhus
+	email = denis@denis.no
