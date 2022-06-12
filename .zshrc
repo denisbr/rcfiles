@@ -172,9 +172,12 @@ setname() { setbadge $1; settitle $1; }
 # SSHDO
 sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host -C sudo "$*"; }
 
+# mkcd
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
 ## Aliases
 alias notstat='lsof -i -P | grep -i "listen"'
-alias dbash='docker exec -it $(docker ps -n 1 -q) bash' 
+alias dbash='docker exec -it $(docker ps -n 1 -q) bash || docker exec -it $(docker ps -n 1 -q) sh' 
 #alias vim='/usr/local/bin/vim'
 alias vimp='vim +NERDTree'
 alias gitjk='history 10 | tail -r | gitjk_cmd'
