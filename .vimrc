@@ -6,13 +6,14 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'fatih/vim-go'
+Plug 'preservim/tagbar', { 'on': ['TagbarToggle', 'TagbarOpen'] }
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/vim-plug'
 Plug 'SirVer/ultisnips'
 Plug 'dense-analysis/ale'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
 Plug 'wellle/context.vim'
 Plug 'jreybert/vimagit'
 Plug 'wincent/terminus'
@@ -34,7 +35,7 @@ if has('syntax') && (&t_Co > 2)
     syntax on
 endif
 
-filetype plugin on 
+filetype plugin on
 
 " Flag extraneous whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -48,10 +49,6 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='term'
-
-"=====[ snipmate ]=============================
-
-let g:snipMate = { 'snippet_version' : 1 }
 
 "=====[ Indenting support ]=======================
 
@@ -109,7 +106,7 @@ set titleold=
 set virtualedit=block
 
 "Show cursor location info on status line
-set ruler 
+set ruler
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -137,13 +134,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 "====[ Jenkinsfile ]============================
 au BufRead,BufNewFile Jenkinsfile* set filetype=groovy
 
-"====[ CtrlP ]==================================
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-
 "====[ vim-go ]==================================
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -152,6 +142,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_snippet_engine = "ultisnips"
+let g:go_auto_type_info = 1
 
 "====[ fzf ]==================================
 set rtp+=/usr/local/opt/fzf
