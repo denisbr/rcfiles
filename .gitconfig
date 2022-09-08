@@ -4,7 +4,7 @@
     st = status
     co = checkout
     cob = checkout -b
-    com = checkout master
+    com = "!f(){ git checkout $(git main-branch) $@;}; f"
     brv = branch -v
     prb = pull --rebase
     pupu = pull --prune
@@ -12,8 +12,10 @@
     puft = pull --tags -f
     prune = fetch --prune
     undo = reset --soft HEAD^
+    rebasem = "!f(){ git rebase -i --autosquash origin/$(git main-branch) --no-verify $@;}; f"
     stash-all = stash save --include-untracked
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
 [gpg]
     program = gpg
 [help]
@@ -24,6 +26,8 @@
     diffFilter = delta --color-only
 [credential]
     helper = osxkeychain
+[diff]
+    external = difft
 [pull]
 	rebase = true
 [merge]
