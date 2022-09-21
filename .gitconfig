@@ -27,7 +27,7 @@
 [credential]
     helper = osxkeychain
 [diff]
-    external = difft
+    external = difft --display inline
 [pull]
 	rebase = true
 [merge]
