@@ -26,6 +26,8 @@
     diffFilter = delta --color-only
 [credential]
     helper = osxkeychain
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [diff]
     external = difft --display inline
 [pull]
@@ -49,3 +51,5 @@
 [user]
 	name = Denis Brækhus
 	email = denis@denis.no
+[credential "https://dev.azure.com"]
+	useHttpPath = true
