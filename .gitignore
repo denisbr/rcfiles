@@ -11,4 +11,8 @@
 .config/filezilla
 .config/gcloud
 .config/gh/hosts.yml
+.config/configstore/nodemon.json
+.config/configstore/update-notifier-npm-check-updates.json
+.config/exercism/user.json
+.config/pudb/pudb.cfg
 dracula
