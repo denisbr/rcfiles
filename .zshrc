@@ -186,8 +186,7 @@ function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 ## Aliases
 alias notstat='lsof -i -P | grep -i "listen"'
 alias dbash='docker exec -it $(docker ps -n 1 -q) bash || docker exec -it $(docker ps -n 1 -q) sh' 
-#alias vim='/usr/local/bin/vim'
-alias vimp='vim +NERDTree'
+alias vim=nvim
 alias gitjk='history 10 | tail -r | gitjk_cmd'
 alias sshtunnel='ssh -v -f ssh-tunnel-server -N'
 alias sg='s -p google'

@@ -15,4 +15,5 @@
 .config/configstore/update-notifier-npm-check-updates.json
 .config/exercism/user.json
 .config/pudb/pudb.cfg
+.config/nvim/lazy-lock.json
 dracula
