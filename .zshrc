@@ -28,6 +28,9 @@ export GOPATH=~/git/gopath
 # Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
+# Rust
+export PATH=$PATH:~/.cargo/bin
+
 # Java
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
@@ -51,9 +54,14 @@ zplug "b4b4r07/zsh-vimode-visual", defer:3
 zplug "rupa/z", use:z.sh
 zplug load
 
+# GitHub Token
+[ -f ~/.gh_token ] && source ~/.gh_token
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
+
+# Gcloud K8S
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
