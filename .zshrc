@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export HOMEBREW_HOME=/opt/homebrew/
+eval "$($HOMEBREW_HOME/bin/brew shellenv)"
 
 source $HOMEBREW_HOME/opt/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -21,6 +22,9 @@ export LANG=en_US.UTF-8
 # User configuration sourced by interactive shells
 #
 export PATH=~/.local/bin:~/Library/Python/3.9/bin:~/.dotfiles/bin:~/git/gopath/bin:~/.npm-global/bin:/usr/local/sbin:$PATH
+
+# Github 1P Plugin
+[ -f ~/.config/op/plugins.sh ] && source ~/.config/op/plugins.sh
 
 # Golang
 export GOPATH=~/git/gopath
@@ -195,10 +199,6 @@ alias sy='s -p youtube'
 alias playbook='ansible-playbook site.yml'
 alias playchksyn='ansible-playbook --syntax-check'
 alias playchk='ansible-playbook --check'
-alias gproxy='gproxy-auto.sh'
-#alias gproxy='gproxy2 login'
-alias gproxy-status='gproxy2 status'
-alias gproxy-off='gproxy2 off'
 alias ls='lsd'
 alias blakk='black --skip-string-normalization --line-length=120'
 alias k=kubectl
@@ -207,9 +207,7 @@ alias devtools='docker-compose run --rm devtools'
 alias ghcrauth='security find-generic-password -a readonly_token -s github_pat -g -w | docker login ghcr.io -u USERNAME --password-stdin'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
 
-export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
-
-source "$HOMEBREW_HOME/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
@@ -217,18 +215,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+# Homedir bin
+export PATH="$PATH:/Users/denis/bin"
