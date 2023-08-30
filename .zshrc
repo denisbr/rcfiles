@@ -1,14 +1,14 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 export HOMEBREW_HOME=/opt/homebrew/
 eval "$($HOMEBREW_HOME/bin/brew shellenv)"
 
-source $HOMEBREW_HOME/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source $HOMEBREW_HOME/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # OSX Locale fix
 export LC_ALL=en_US.UTF-8
@@ -37,7 +37,7 @@ export PATH=$PATH:~/.cargo/bin
 
 # Java
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# eval "$(jenv init -)"
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
@@ -49,9 +49,12 @@ eval "$(pyenv virtualenv-init -)"
 export ZPLUG_HOME=$HOMEBREW_HOME/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
+# 1Password plugins
+[ -f ~/Users/denis/.config/op/plugins.sh ] && source /Users/denis/.config/op/plugins.sh
+
 zplug bobsoppe/zsh-ssh-agent
 zplug mafredri/zsh-async
-zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
+# zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "b4b4r07/zsh-vimode-visual", defer:3
@@ -133,6 +136,9 @@ fi
 
 [[ -f /usr/share/autoenv/activate.sh ]] && source /usr/share/autoenv/activate.sh
 
+# SmartThings Autocomplete
+# eval $(smartthings autocomplete:script zsh)
+
 export GITHUB_USERNAME=denisbr
 # start in normal mode
 #
@@ -209,7 +215,7 @@ alias ghcrauth='security find-generic-password -a readonly_token -s github_pat -
 
 export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
 
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+# POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -217,3 +223,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Homedir bin
 export PATH="$PATH:/Users/denis/bin"
+
+# Starship
+eval "$(starship init zsh)"
