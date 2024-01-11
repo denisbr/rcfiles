@@ -1,51 +1,59 @@
 # This is Git's per-user configuration file.
 [alias]
-    a = add
-    st = status
-    co = checkout
-    cob = checkout -b
-    com = "!f(){ git checkout $(git main-branch) $@;}; f"
-    brv = branch -v
-    prb = pull --rebase
-    pupu = pull --prune
-    last = log -1 HEAD
-    puft = pull --tags -f
-    prune = fetch --prune
-    undo = reset --soft HEAD^
-    rebasem = "!f(){ git rebase -i --autosquash origin/$(git main-branch) --no-verify $@;}; f"
-    stash-all = stash save --include-untracked
-    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+  a = add
+  st = status
+  co = checkout
+  cob = checkout -b
+  com = "!f(){ git checkout $(git main-branch) $@;}; f"
+  difft = difftool
+  dlog = logt
+  brv = branch -v
+  prb = pull --rebase
+  pupu = pull --prune
+  last = log -1 HEAD
+  logt = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+  puft = pull --tags -f
+  prune = fetch --prune
+  undo = reset --soft HEAD^
+  rebasem = "!f(){ git rebase -i --autosquash origin/$(git main-branch) --no-verify $@;}; f"
+  stash-all = stash save --include-untracked
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
 [gpg]
-    program = gpg
+  program = gpg
 [help]
 	autocorrect = 20
 [core]
-    pager = delta --dark --syntax-theme='Nord'
+  pager = delta --dark --syntax-theme='Nord'
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [credential]
-    helper = osxkeychain
-	helper = 
+  helper = osxkeychain
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [diff]
-    external = difft --display inline
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [pull]
 	rebase = true
 [merge]
-    ff = only
-    conflictstyle = diff3
+  ff = only
+  conflictstyle = diff3
 [push]
-    default = simple
-    followTags = true
+  default = simple
+  followTags = true
 [status]
-    showUntrackedFiles = all
+  showUntrackedFiles = all
 [transfer]
-    fsckobjects = true
+  fsckobjects = true
 [includeif "gitdir:~/git/personal/"]
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/git/work/"]
-  	path = ~/.gitconfig-work
+  path = ~/.gitconfig-work
 [init]
 	defaultBranch = main
 [user]
