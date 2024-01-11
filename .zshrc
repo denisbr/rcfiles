@@ -209,7 +209,6 @@ alias ls='lsd'
 alias blakk='black --skip-string-normalization --line-length=120'
 alias k=kubectl
 alias kn='kubectl config set-context --current --namespace'
-alias devtools='docker-compose run --rm devtools'
 alias ghcrauth='security find-generic-password -a readonly_token -s github_pat -g -w | docker login ghcr.io -u USERNAME --password-stdin'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
 
