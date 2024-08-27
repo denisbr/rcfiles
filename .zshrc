@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 export HOMEBREW_HOME=/opt/homebrew/
 eval "$($HOMEBREW_HOME/bin/brew shellenv)"
 
@@ -155,9 +148,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # fzf
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
     --color=fg:#e5e9f0,bg:#3b4251,hl:#81a1c1
@@ -173,7 +163,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 sshrmkey() { vim "+d$1|x" ~/.ssh/known_hosts; }
 
 # Youtube dl wrapper for ios compat
-ydl() { youtube-dl --merge-output-format mp4 -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1; }
+ydl() { yt-dlp --merge-output-format mp4 -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1; }
 
 # iTerm2 Badges http://iterm2.com/badges.html
 #function iterm2_print_user_vars() {
@@ -194,7 +184,7 @@ sshdo() { host=$1; shift 1; echo Doing: ssh $host -C sudo "$*"; read ; ssh $host
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 ## Aliases
-alias notstat='lsof -i -P | grep -i "listen"'
+alias notstat='netstat -an | grep LISTEN'
 alias dbash='docker exec -it $(docker ps -n 1 -q) bash || docker exec -it $(docker ps -n 1 -q) sh' 
 alias vim=nvim
 alias gitjk='history 10 | tail -r | gitjk_cmd'
@@ -210,6 +200,7 @@ alias blakk='black --skip-string-normalization --line-length=120'
 alias k=kubectl
 alias kn='kubectl config set-context --current --namespace'
 alias ghcrauth='security find-generic-password -a readonly_token -s github_pat -g -w | docker login ghcr.io -u USERNAME --password-stdin'
+alias kubectl='kubecolor'
 [[ ! -f ~/.aada-aliases.zsh ]] || source ~/.aada-aliases.zsh
 
 export LESSOPEN="|/opt/homebrew/bin/lesspipe.sh %s"
